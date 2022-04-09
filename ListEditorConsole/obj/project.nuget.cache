@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "aFLKO/NIj2/+pZp4NgW8D1AE92HZjrhx3VDRJHfCB3qHNdi5enmCpvb/TW6LWQHJwY6xFSk3yj6ipcVVcbBxrA==",
+  "success": true,
+  "projectFilePath": "/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/ListEditorConsole.csproj",
+  "expectedPackageFiles": [
+    "/home/fizlrock/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.2/microsoft.aspnetcore.app.ref.6.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
