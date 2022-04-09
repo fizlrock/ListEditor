@@ -1,0 +1,15 @@
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/bin/Debug/net6.0/ListEditorConsole
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/bin/Debug/net6.0/ListEditorConsole.deps.json
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/bin/Debug/net6.0/ListEditorConsole.runtimeconfig.json
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/bin/Debug/net6.0/ListEditorConsole.dll
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/bin/Debug/net6.0/ref/ListEditorConsole.dll
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/bin/Debug/net6.0/ListEditorConsole.pdb
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.csproj.AssemblyReference.cache
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.GeneratedMSBuildEditorConfig.editorconfig
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.AssemblyInfoInputs.cache
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.AssemblyInfo.cs
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.csproj.CoreCompileInputs.cache
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.dll
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ref/ListEditorConsole.dll
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.pdb
+/home/fizlrock/RiderProjects/ListEditor/ListEditorConsole/obj/Debug/net6.0/ListEditorConsole.genruntimeconfig.cache
