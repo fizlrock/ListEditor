@@ -12,6 +12,36 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <TabControl>
+        <TabItem Header="Задание">
+            <StackPanel>
+                <Menu>
+                    <MenuItem Header="Создать список">
+                        <Grid ColumnDefinitions="4*,1*">
+                            <TextBox Grid.Column="0" Text="{Binding ListName}"></TextBox>
+                            <Button Content = "Ок"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Command="{Binding CreateListCommand}"
+                                    />
+                        </Grid>
 
+                    </MenuItem>
+                    <MenuItem Header="Открыть список" >
+                        <Menu></Menu>
+                    </MenuItem>
+                    <MenuItem Header="Редактировать список" IsVisible="{Binding IsSelected}"></MenuItem>
+                </Menu>
+            </StackPanel>
+        </TabItem>
+        
+        <TabItem Header="О программе">
+            
+        </TabItem>
+        
+        <TabItem Header="Закрыть программу">
+            <Button Margin="100" Command="{Binding Exit}" Height="200" Width="600"></Button>
+        </TabItem>
+    </TabControl>
 </Window>
