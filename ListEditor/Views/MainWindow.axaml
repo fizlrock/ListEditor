@@ -83,19 +83,20 @@
                     <MenuItem Header="Редактировать список" IsVisible="{Binding IsSelected}">
                         
                         <MenuItem Header="Добавление элемента">
+                            <TextBox Watermark="Число(Числа через пробел)" Text="{Binding RawUserValues}"></TextBox>
                             
-                            <MenuItem Header="В начало">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBox Watermark="Число(Числа через пробел)" Text="{Binding RawUserValues}"></TextBox>
-                                    <Button Content="ОК" Command="{Binding ExecuteOperationCommand}">
-                                        <Button.CommandParameter>
-                                            <listEditor:Operation>AddToTop</listEditor:Operation>
-                                        </Button.CommandParameter>
-                                    </Button>
-                                </StackPanel>
+                            <MenuItem Header="В начало" Command="{Binding ExecuteOperationCommand}">
+                                <MenuItem.CommandParameter>
+                                    <listEditor:Operation>AddToTop</listEditor:Operation>
+                                </MenuItem.CommandParameter>
                             </MenuItem>
                             
-                            <MenuItem Header="В конец"></MenuItem>
+                            <MenuItem Header="В конец" Command="{Binding ExecuteOperationCommand}">
+                                <MenuItem.CommandParameter>
+                                    <listEditor:Operation>AddToEnd</listEditor:Operation>
+                                </MenuItem.CommandParameter>
+                            </MenuItem>
+                            
                             <MenuItem Header="В произвольную точку"></MenuItem>
                          </MenuItem>   
                         
@@ -113,6 +114,7 @@
                 <Grid
                     VerticalAlignment="Stretch"
                     HorizontalAlignment="Stretch"
+                    IsVisible="{Binding IsSelected}"
                     >
                     <DataGrid Items="{Binding Values}"></DataGrid>
                 </Grid>

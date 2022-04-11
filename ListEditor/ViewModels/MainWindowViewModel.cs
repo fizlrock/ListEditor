@@ -30,7 +30,13 @@ public class MainWindowViewModel : ViewModelBase
     public int[] Values
     {
         get { return _Values; }
-        set { this.RaiseAndSetIfChanged(ref _Values, value); }
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _Values, value);
+            Console.WriteLine("Значения списка {0} изменены:", core.SelectedListName);
+            foreach (int a in Values) Console.Write(" {0}", a);
+            Console.WriteLine();
+        }
     }
 
     private string current_list_name;
@@ -113,18 +119,26 @@ public class MainWindowViewModel : ViewModelBase
         for (int i = 0; i < value.Count; i++) user_data[i] = value[i];
         
         
-        switch (_operation)
+        switch (operation)
         {
             case Operation.AddToTop:
             {
                 if (user_data.Length != 0)
                 {
-                    Console.WriteLine("Добавлено {0} в список {1}", user_data.Length, core.SelectedListName);
+                    Console.WriteLine("Добавлено {0} элементов в начало списока {1}", user_data.Length, core.SelectedListName);
                     core.AddToTop(user_data);
                     Values = core.Values;
-                    Console.WriteLine("Элементы списка:");
-                    foreach (int a in Values) Console.Write(" {0}", a);
-                    
+                }
+                break;
+            }
+
+            case Operation.AddToEnd:
+            {
+                if (user_data.Length != 0)
+                {
+                    Console.WriteLine("Добавлено {0} элементов в конец списока {1}", user_data.Length, core.SelectedListName);
+                    core.AddToEnd(user_data);
+                    Values = core.Values;
                 }
                 break;
             }
