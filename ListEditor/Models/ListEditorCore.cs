@@ -1,8 +1,16 @@
+using System;
 using System.Collections.Generic;
+using Avalonia.Media;
 
 namespace ListEditor;
 
-
+public enum Operation
+{
+    AddToTop,
+    AddToEnd,
+    DeleteAtTop,
+    DeleteAtEnd
+}
 
 public class ListEditorCore
 {
@@ -29,6 +37,19 @@ public class ListEditorCore
     {
         // Выбрать список по номеру
        selected_list = existing_lists[number];
+    }
+
+    public void SelectList(string name)
+    {
+        MyList list = null;
+        int i = 0;
+        while (!Equals(existing_lists[i].name, name)) i++;
+        if (Equals(existing_lists[i].name, name)) selected_list = existing_lists[i];
+        else
+        {
+            throw new Exception();
+        }
+
     }
 
     public string SelectedListName

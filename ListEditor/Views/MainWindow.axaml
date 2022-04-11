@@ -3,6 +3,7 @@
         xmlns:vm="using:ListEditor.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:listEditor="clr-namespace:ListEditor"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ListEditor.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -11,9 +12,53 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    
+    <Window.Styles>
 
-    <TabControl>
+        <Style Selector="TabControl">
+            <Setter Property="Background" Value="#F0F0F0"/>
+        </Style>
+        <Style Selector="TabControl WrapPanel">
+            <Setter Property="Background" Value="#2B579A"/>
+        </Style>
+
+        <Style Selector="TabItem">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <!--<Setter Property="Background" Value="#2B579A"/> -->
+            <Setter Property="Foreground" Value="#F0F0F0"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+        <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#124078"/>
+        </Style>
+
+        <Style Selector="TabItem:focus">
+            <Setter Property="Foreground" Value="#2B579A"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+        <Style Selector="TabItem:focus /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#f0f0f0"/>
+        </Style>
+
+        <Style Selector="TabItem:selected">
+            <Setter Property="Foreground" Value="#2B579A"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+        <Style Selector="TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#f0f0f0"/>
+        </Style>
+
+    </Window.Styles>
+    
+
+    <TabControl VerticalAlignment="Top">
         <TabItem Header="Задание">
+            <Border Margin="20">
             <StackPanel>
                 <Menu>
                     <MenuItem Header="Создать список">
@@ -28,12 +73,54 @@
                         </Grid>
 
                     </MenuItem>
-                    <MenuItem Header="Открыть список" >
-                        <Menu></Menu>
+                    
+                    <ComboBox HorizontalAlignment="Stretch"
+                              Items="{Binding ExistingNames}"
+                              SelectedItem="{Binding CurrentListName}"
+                              />
+                              
+     
+                    <MenuItem Header="Редактировать список" IsVisible="{Binding IsSelected}">
+                        
+                        <MenuItem Header="Добавление элемента">
+                            
+                            <MenuItem Header="В начало">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Watermark="Число(Числа через пробел)" Text="{Binding RawUserValues}"></TextBox>
+                                    <Button Content="ОК" Command="{Binding ExecuteOperationCommand}">
+                                        <Button.CommandParameter>
+                                            <listEditor:Operation>AddToTop</listEditor:Operation>
+                                        </Button.CommandParameter>
+                                    </Button>
+                                </StackPanel>
+                            </MenuItem>
+                            
+                            <MenuItem Header="В конец"></MenuItem>
+                            <MenuItem Header="В произвольную точку"></MenuItem>
+                         </MenuItem>   
+                        
+                        <MenuItem Header="Удаление элемента">
+                            <MenuItem Header="В начале"></MenuItem>
+                            <MenuItem Header="В конце"></MenuItem>
+                            <MenuItem Header="В произвольной точке"></MenuItem>
+                        </MenuItem>
+                    
                     </MenuItem>
-                    <MenuItem Header="Редактировать список" IsVisible="{Binding IsSelected}"></MenuItem>
+                    
+
                 </Menu>
+                
+                <Grid
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    >
+                    <DataGrid Items="{Binding Values}"></DataGrid>
+                </Grid>
+                
             </StackPanel>
+            
+            </Border>
+            
         </TabItem>
         
         <TabItem Header="О программе">
